@@ -1,0 +1,58 @@
+#img_detail{
+
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#img_detail img{
+  
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    min-height: 50%;
+    min-width: 50%;
+}
+#info{
+    position: absolute;
+    left: 72.97%;
+    right: 0%;
+    top: -0.23%;
+    bottom: 0.15%;
+    background: #092944;
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+}
+#info h1{
+    position: absolute;
+    width: 465px;
+    height: 183px;
+    left: 1444px;
+    top: 32px;
+
+    font-family: UTM Bienvenue;
+    line-height: normal;
+    font-size: 42px;
+
+    color: #FFFFFF;
+}
+#info p{
+    position: absolute;
+    width: 409px;
+    height: 94px;
+    left: 1472px;
+    top: 246px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+
+    color: #FFFFFF;
+}
+#btnback{
+    
+}

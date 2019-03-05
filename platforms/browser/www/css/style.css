@@ -1,0 +1,232 @@
+body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.state {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    height: 26px;
+    width: 100%;
+    text-align: center;
+}
+        body {
+            margin: 0;
+        }
+
+        #img360 {
+            position: absolute;
+            top: 0px;
+            z-index: 2;
+        }
+        #infoHotSpot{
+        }
+        .player_wrapper{
+        }
+        .start{
+                position: fixed;
+        }
+        .imgLogo{
+            width: 100%;
+            height: auto;
+        }
+        @media all and (max-width: 768px) {
+            .start{
+                    top: 40%;
+                    left: 35%;
+                    border-radius: 160px;
+                    height: 160px;
+                    width: 160px;
+            }
+            .imgLogo{
+                width: 160px;
+                height: 160px;
+            }
+        }
+.options {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 46px;
+    z-index: 2;
+}
+
+.icon {
+    width: 44px;
+    height: 44px;
+}
+
+#logo {
+    position: absolute;
+    width: 160px;
+    height: auto;
+    left: 0px;
+    margin: 20px;
+    z-index: 100;
+}
+#logoVincity{
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+#iconlogo360{
+    left: 0px;
+    z-index: 100;
+    margin-left: 60px;
+}
+
+.controls {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#progess {
+    width: 100%;
+}
+
+.muteButton {
+    right: 20px;
+}
+
+.fullscreenButton {
+    right: 0px;
+}
+
+#btn {
+    margin: 0;
+    padding: 0;
+}
+
+#btn li {
+    display: inline-block;
+
+}
+
+#volum {
+    right: 40px;
+    position: absolute;
+}
+
+#time {
+    font-size: 25px;
+    color: aliceblue;
+    position: absolute;
+    padding: 12px;
+}
+
+#fullscreen {
+    right: 0px;
+    position: absolute;
+}
+
+.slideControl {
+    position: absolute;
+    top: 0px;
+}
+
+.slideControlContainer {
+    position: absolute;
+    width: 100%;
+}
+
+#slide {
+    margin-bottom: 40px;
+}
+
+.question-mark-pulse {
+    position: fixed;
+    top: 13px;
+    left: 25px;
+    z-index: 2;
+    border: 5px solid #ffffff;
+    border-radius: 60px;
+    height: 90px;
+    width: 90px;
+    -webkit-animation: pulse 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.hotspot {
+    position: fixed;
+    top: 38px;
+    left: 50px;
+    text-align: center;
+    line-height: 39px;
+    color: #000;
+    font-size: 3em;
+    z-index: 2;
+    border: 5px solid #fff;
+    border-radius: 60px;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+body.vjs-full-window .player_wrapper {
+    position: static;
+}
+
+.player_wrapper {
+
+
+}
+
+.player_container {
+    padding-top: 56.25%;
+}
+
+#videojs-panorama-player {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+}
+
+@media all and (max-width: 1366px) {
+    #logo {
+        position: absolute;
+        width: 120px;
+        right: 0px;
+        margin: 10px;
+    }
+    .player_wrapper {     
+        max-width: 1024px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #logo {
+        position: absolute;
+        width: 100px;
+        right: 0px;
+        margin: 10px;
+    }
+    .player_wrapper {     
+        max-width: 600px;
+    }
+}

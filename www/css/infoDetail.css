@@ -1,0 +1,158 @@
+@font-face { 
+    font-family: IBMPlexSans; 
+    src: url('font/IBMPlexSans-Regular.ttf');
+} 
+@font-face { 
+    font-family: UTM Bienvenue; 
+    src: url('font/Roboto/RobotoSlab-Regular.ttf');
+}
+#infoHotSpot{
+    background-color:rgba(0,0,0,0.7);
+    display: none;
+}
+
+#img_detail{
+    position: absolute;
+}
+#img_detail img{
+ position: fixed; 
+  top: 0; 
+  left: 0; 
+
+  /* Preserve aspet ratio */
+  width: 100%;
+  height: 100%;
+}
+#info {
+    position: absolute;
+    left: 76.97%;
+    right: 0%;
+    top: -0.23%;
+    bottom: 0.15%;
+
+    background: #092944;
+    opacity: 0.7;
+}
+#info h1{
+   /* position: absolute;*/
+    font-family: UTM Bienvenue;
+    line-height: normal;
+    font-size: 35px;
+
+    color: #FFFFFF;
+    margin: 40px 40px 0px 40px;
+}
+#info p {
+   /* position: absolute;*/
+    font-family: IBMPlexSans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+
+    color: #FFFFFF;
+    margin: 40px;
+}
+#btnback2{
+    z-index: 2;
+    /*position: absolute;*/
+    width: 120px;
+    height: auto;
+    color: #FFFFFF;
+    margin: 40px;
+    
+    /*right: 20%;
+    bottom: 20%;*/
+}
+#btnback{
+    z-index: 2;
+    /*position: absolute;*/
+    width: 120px;
+    height: auto;
+    margin: 40px;
+}
+#btnback img:hover{
+    background-color: skyblue;
+}
+#btnback img{
+    width: 160px;
+    height: auto;
+}
+
+#btnback2 img{
+    width: 220px;
+    height: auto;
+}
+.muteButton {
+    right: 20px;
+}
+.fullscreenButton{
+    right: 0px;
+}
+@media all and (max-width: 1366px) {
+    #img_phuquoc{
+        position: fixed;
+    }
+    #img_phuquoc img{
+        position: fixed;
+        width: auto;
+        height: 100%;
+    }
+}
+@media all and (max-width: 1024px) {
+    #info {
+        width: 40%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #info h1{
+        font-size: 18px;
+    }
+    #info p {
+        font-size: 18px;
+    }
+    #btnback button {
+        width: 70%;
+        font-size: 20px;
+        padding: 5px;
+
+    }
+    
+}
+@media all and (max-width: 768px) {
+    #info {
+        width: 50%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #info h1{
+        font-size: 18px;
+    }
+    #info p {
+        font-size: 18px;
+    }
+    #btnback button {
+        width: 70%;
+        font-size: 20px;
+        padding: 5px;
+
+    }
+}
+@media all and (max-width: 414px) {
+    #info {
+        width: 70%;
+        padding: 10px;
+    }
+    #info h1{
+        font-size: 12px;
+    }
+    #info p {
+        font-size: 12px;
+    }
+    #btnback button {
+        width: 70%;
+        font-size: 20px;
+        padding: 5px;
+
+    }
+}

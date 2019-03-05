@@ -1,0 +1,72 @@
+.vinTab_header{    
+	text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    clear: both;
+    width: 100%;
+}	
+	
+.vinTab_header .lp-tab-header__newstyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+	.vinTab_header {      
+		padding-right: 4px;
+		padding-left: 4px;
+		padding-top: 8px;
+	}
+	.vinTab_body .tab-content > img{
+		left: 0 !important;
+	}
+	.vinTab_body .lp-tab-body__newstyle.tab-content > img{
+		left: 4px !important;
+	}
+	.vinTab_header .lp-tab-header__newstyle .nav-tabs {
+	  display: inline-flex;
+	  flex-flow: row;
+	  width: 100%;
+	  overflow-x: scroll;
+	  overflow-y: hidden;
+	  padding-bottom: 4px !important;
+	}
+	.vinTab_header .lp-tab-header__newstyle .nav-tabs > li{
+		display: inline-block;
+	}
+	
+	.lp-product-tab .vinTab_header .lp-tab-header__newstyle{
+		padding: 0 !important;
+	}
+	
+    .vinTab_body .tab-content{
+		padding: 16px 0px !important;
+	}
+    .lp-product-tab .lp-tab-body__newstyle.tab-content{
+		padding: 12px 0 !important;
+	}
+	
+	.lp-product-tab .vinTab_header .lp-tab-header__newstyle .lp-product-header-tabs{
+		margin: 0 !important;
+	}
+}
+
+.vinTab_body .tab-content > img{
+	position: absolute;
+	top: 3px;
+	left: 24px;
+}
+
+.lp-product-tab .lp-tab-body__newstyle{
+  padding: 10px 16px !important;
+}
+.vinTab_body .lp-tab-body__newstyle.tab-content > img{
+	position: absolute;
+	top: 0;
+	left: 24px;
+}

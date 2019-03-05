@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HoloPlayer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <link href="css/video-js.min.css" rel="stylesheet">
+    <link href="css/videojs-panorama.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/infoDetail.css">
+    <style>
+    </style>
+</head>
+
+<body>
+   
+    <div id="logo">
+        <img id="logoVincity" src="img/Vincity/VincityLogoVer2.png">
+    </div>
+    
+
+    <!--<img class="hotspot" src="img/hotspot.png">-->
+    <div id="img360">
+    </div>
+    
+    <script src="js/three.js"></script>
+    <script src="js/panorama/video.js"></script>
+
+    <script src="js/panorama/videojs-panorama.v5.js"></script>
+    <script src="js/threex.domevents.js"></script>
+    <script src="js/CSS3DRenderer.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+
+    <!--img 360-->
+    <script>
+        var camera, scene, renderer;
+
+        var isUserInteracting = false,
+            onMouseDownMouseX = 0,
+            onMouseDownMouseY = 0,
+            lon = 0,
+            onMouseDownLon = 0,
+            lat = 0,
+            onMouseDownLat = 0,
+            phi = 0,
+            theta = 0;
+        var isDown = false;
+        var timer;
+        var cameraControls;
+        
+        init();
+        animate();
+        function init() {
+
+            var container, mesh;
+
+            container = document.getElementById('img360');
+
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+            camera.target = new THREE.Vector3(0, 0, 0);
+
+            scene = new THREE.Scene();
+
+            var geometry = new THREE.SphereGeometry(500, 60, 40);
+            geometry.applyMatrix(new THREE.Matrix4().makeScale(-1, 1, 1));
+
+            var material = new THREE.MeshBasicMaterial({
+                map: THREE.ImageUtils.loadTexture('img/Vincity/VCT_PC_Pano_18.jpg')
+            });
+
+            mesh = new THREE.Mesh(geometry, material);
+
+            scene.add(mesh);
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+            
+
+            document.addEventListener('mousedown', onDocumentMouseDown, {passive: true});
+            document.addEventListener('mousemove', onDocumentMouseMove, {passive: true});
+            document.addEventListener('mouseup', onDocumentMouseUp, {passive: true});
+            
+            document.addEventListener('touchstart', onDocumentMouseDown, {passive: true});
+            document.addEventListener('touchmove', onDocumentMouseMove, {passive: true});
+            document.addEventListener('touchend', onDocumentMouseUp, {passive: true});
+            
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        function onDocumentMouseDown(event) {
+            isDown = !1;
+
+            timer = setTimeout(function() {
+                isDown = !0;
+                isUserInteracting = true;
+                if (event.changedTouches) {
+                    onPointerDownPointerX = event.changedTouches[0].pageX;
+                    onPointerDownPointerY = event.changedTouches[0].pageY;
+                }else{
+                    onPointerDownPointerX = event.clientX;
+                    onPointerDownPointerY = event.clientY;
+
+                }
+                
+                onPointerDownLon = lon;
+                onPointerDownLat = lat;
+            }, 250)
+
+        }
+
+        function onDocumentMouseMove(event) {
+            if (isUserInteracting === true) {
+                if (event.changedTouches) {
+                    lon = (onPointerDownPointerX - event.changedTouches[0].pageX) * 0.1 + onPointerDownLon;
+                    lat = (event.changedTouches[0].pageY - onPointerDownPointerY) * 0.1 + onPointerDownLat;
+                }else{
+                    lon = (onPointerDownPointerX - event.clientX) * 0.1 + onPointerDownLon;
+                    lat = (event.clientY - onPointerDownPointerY) * 0.1 + onPointerDownLat;
+                }
+            }
+
+        }
+
+        function onDocumentMouseUp(event) {
+            isUserInteracting = false;
+            clearTimeout(timer);
+        }
+
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+            update();
+
+        }
+
+        function update() {
+
+            if (isUserInteracting === false) {
+
+                lon += 0.1;
+
+            }
+
+            lat = Math.max(-85, Math.min(85, lat));
+            phi = THREE.Math.degToRad(90 - lat);
+            theta = THREE.Math.degToRad(lon);
+
+            camera.target.x = 500 * Math.sin(phi) * Math.cos(theta);
+            camera.target.y = 500 * Math.cos(phi);
+            camera.target.z = 500 * Math.sin(phi) * Math.sin(theta);
+
+            camera.lookAt(camera.target);
+
+            /*
+            // distortion
+            camera.position.copy( camera.target ).negate();
+            */
+
+            renderer.render(scene, camera);
+
+        }
+    </script>
+</body>
+
+</html>
